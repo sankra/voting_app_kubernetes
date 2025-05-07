@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: voting-app-pod
+  labels:
+    name: demo-voting-app
+spec:
+  containers:
+    - name: voting-app-container
+      image: kodekloud/examplevoting
