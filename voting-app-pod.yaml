@@ -7,4 +7,6 @@ metadata:
 spec:
   containers:
     - name: voting-app-container
-      image: kodekloud/examplevoting
+      image: kodekloud/examplevoting_vote:v1
+      ports:
+        - containerPort: 80
