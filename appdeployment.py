@@ -15,16 +15,16 @@ class AppDeployment:
         self.core_v1 = None
         self._initialize_kubernetes_client()
 
-    # def _initialize_kubernetes_client(self):
-    #     """
-    #     Initialize the Kubernetes client using the provided config file.
-    #     """
-    #     try:
-    #         config.load_kube_config(config_file=self.kube_config_path)
-    #         self.api_client = client.ApiClient()
-    #         self.apps_v1 = client.AppsV1Api(self.api_client)
-    #         self.core_v1 = client.CoreV1Api(self.api_client)
-    #         logging.info("Kubernetes client initialized successfully.")
-    #     except Exception as e:
-    #         logging.error(f"Failed to initialize Kubernetes client: {e}")
-    #         raise
+    def _initialize_kubernetes_client(self):
+        """
+        Initialize the Kubernetes client using the provided config file.
+        """
+        try:
+            config.load_kube_config(config_file=self.kube_config_path)
+            self.api_client = client.ApiClient()
+            self.apps_v1 = client.AppsV1Api(self.api_client)
+            self.core_v1 = client.CoreV1Api(self.api_client)
+            logging.info("Kubernetes client initialized successfully.")
+        except Exception as e:
+            logging.error(f"Failed to initialize Kubernetes client: {e}")
+            raise
