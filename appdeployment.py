@@ -37,3 +37,20 @@ class AppDeploymentError(Exception):
         super().__init__(message)
         self.message = message
         logging.error(f"AppDeploymentError: {message}")
+
+
+def main():
+    """
+    Main function to demonstrate the usage of the AppDeployment class.
+    """
+    kube_config_path = "path/to/kubeconfig"  # Replace with your kubeconfig path
+    app_deployment = AppDeployment(kube_config_path)
+
+    # Example usage: List all deployments in a namespace
+    namespace = "default"
+    try:
+        deployments = app_deployment.apps_v1.list_namespaced_deployment(namespace)
+        for deployment in deployments.items:
+            print(f"Deployment Name: {deployment.metadata.name}")
+    except ApiException as e:
+        logging.error(f"Exception when listing deployments: {e}")
