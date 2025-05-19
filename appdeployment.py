@@ -28,3 +28,12 @@ class AppDeployment:
         except Exception as e:
             logging.error(f"Failed to initialize Kubernetes client: {e}")
             raise
+
+class AppDeploymentError(Exception):
+    """
+    Custom exception class for AppDeployment errors.
+    """
+    def __init__(self, message: str):
+        super().__init__(message)
+        self.message = message
+        logging.error(f"AppDeploymentError: {message}")
