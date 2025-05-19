@@ -32,3 +32,8 @@ A simple, full-stack voting application that allows users to cast votes between 
 
 ## 🏗️ Architecture
 
+- Interactive frontend to cast votes between two options.
+- Real-time result updates with persistent storage.
+- Microservices-based architecture.
+- Dockerized services for seamless deployment.
+- Scalable and extendable design for learning and demos.
