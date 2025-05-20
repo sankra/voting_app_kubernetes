@@ -52,5 +52,6 @@ def main():
         deployments = app_deployment.apps_v1.list_namespaced_deployment(namespace)
         for deployment in deployments.items:
             print(f"Deployment Name: {deployment.metadata.name}")
+            print(f"Namespace: {deployment.metadata.namespace}")
     except ApiException as e:
         logging.error(f"Exception when listing deployments: {e}")
