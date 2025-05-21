@@ -45,7 +45,18 @@ class AppDeploymentConfig:
     def __init__(self, config: Dict[str, Any]):
         self.config = config
 
+    def get_config(self) -> Dict[str, Any]:
+        """
+        Get the deployment configuration.
+        """
+        return self.config
 
+    def set_config(self, config: Dict[str, Any]):
+        """
+        Set the deployment configuration.
+        """
+        self.config = config
+        logging.info("Deployment configuration updated.")
 
 
 def main():
