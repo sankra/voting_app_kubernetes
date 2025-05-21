@@ -38,6 +38,15 @@ class AppDeploymentError(Exception):
         self.message = message
         logging.error(f"AppDeploymentError: {message}")
 
+class AppDeploymentConfig:
+    """
+    Class to manage the configuration of the AppDeployment.
+    """
+    def __init__(self, config: Dict[str, Any]):
+        self.config = config
+
+
+
 
 def main():
     """
