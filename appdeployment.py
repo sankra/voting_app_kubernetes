@@ -75,3 +75,35 @@ def main():
             print(f"Namespace: {deployment.metadata.namespace}")
     except ApiException as e:
         logging.error(f"Exception when listing deployments: {e}")
+    # Example usage: Create a deployment
+    deployment_config = {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "metadata": {
+            "name": "example-deployment",
+            "namespace": namespace
+        },
+        "spec": {
+            "replicas": 2,
+            "selector": {
+                "matchLabels": {
+                    "app": "example-app"
+                }
+            },
+            "template": {
+                "metadata": {
+                    "labels": {
+                        "app": "example-app"
+                    }
+                },
+                "spec": {
+                    "containers": [
+                        {
+                            "name": "example-container",
+                            "image": "nginx:latest"
+                        }
+                    ]
+                }
+            }
+        }
+    }
