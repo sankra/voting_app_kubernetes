@@ -29,6 +29,29 @@ class AppDeployment:
             logging.error(f"Failed to initialize Kubernetes client: {e}")
             raise
 
+
+class AppDeploymentStatus:
+    """
+    Class to manage the status of the AppDeployment.
+    """
+    def __init__(self, deployment_name: str, namespace: str):
+        self.deployment_name = deployment_name
+        self.namespace = namespace
+
+    def get_status(self) -> Dict[str, Any]:
+        """
+        Get the status of the deployment.
+        """
+        try:
+            api_response = self.apps_v1.read_namespaced_deployment(
+                name=self.deployment_name,
+                namespace=self.namespace
+            )
+            return api_response.status.to_dict()
+        except ApiException as e:
+            logging.error(f"Failed to get deployment status: {e}")
+            raise
+
 class AppDeploymentError(Exception):
     """
     Custom exception class for AppDeployment errors.
