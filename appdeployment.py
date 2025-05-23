@@ -58,6 +58,20 @@ class AppDeploymentConfig:
         self.config = config
         logging.info("Deployment configuration updated.")
 
+    def create_deployment(self, namespace: str, deployment_config: Dict[str, Any]):
+        """
+        Create a deployment in the specified namespace.
+        """
+        try:
+            api_response = self.apps_v1.create_namespaced_deployment(
+                body=deployment_config,
+                namespace=namespace
+            )
+            logging.info(f"Deployment created: {api_response.metadata.name}")
+            return api_response
+        except ApiException as e:
+            raise AppDeploymentError(f"Failed to create deployment: {e}")
+
 
 def main():
     """
@@ -75,3 +89,35 @@ def main():
             print(f"Namespace: {deployment.metadata.namespace}")
     except ApiException as e:
         logging.error(f"Exception when listing deployments: {e}")
+    # Example usage: Create a deployment
+    deployment_config = {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "metadata": {
+            "name": "example-deployment",
+            "namespace": namespace
+        },
+        "spec": {
+            "replicas": 2,
+            "selector": {
+                "matchLabels": {
+                    "app": "example-app"
+                }
+            },
+            "template": {
+                "metadata": {
+                    "labels": {
+                        "app": "example-app"
+                    }
+                },
+                "spec": {
+                    "containers": [
+                        {
+                            "name": "example-container",
+                            "image": "nginx:latest"
+                        }
+                    ]
+                }
+            }
+        }
+    }
