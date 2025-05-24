@@ -39,9 +39,6 @@ class AppDeploymentStatus:
         self.namespace = namespace
 
     def get_status(self) -> Dict[str, Any]:
-        """
-        Get the status of the deployment.
-        """
         try:
             api_response = self.apps_v1.read_namespaced_deployment(
                 name=self.deployment_name,
@@ -60,6 +57,9 @@ class AppDeploymentError(Exception):
         super().__init__(message)
         self.message = message
         logging.error(f"AppDeploymentError: {message}")
+
+    def __str__(self):
+        return f"AppDeploymentError: {self.message}"
 
 class AppDeploymentConfig:
     """
