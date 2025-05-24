@@ -81,8 +81,13 @@ class AppDeploymentConfig:
         self.config = config
         logging.info("Deployment configuration updated.")
 
+class AppDeploymentManager(AppDeployment):
+    """Class to manage the deployment of applications in Kubernetes.
+    This class extends the AppDeployment class and provides methods to create, update, and delete deployments.
+    """    
+
     def create_deployment(self, namespace: str, deployment_config: Dict[str, Any]):
-        """
+        """s
         Create a deployment in the specified namespace.
         """
         try:
