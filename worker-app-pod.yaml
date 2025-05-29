@@ -9,3 +9,5 @@ spec:
   containers:
     - name: worker-app-container
       image: kodekloud/examplevotingapp_worker:v1
+      # The worker app does not expose any ports
+      # as it is not a web service, but rather a background worker.
