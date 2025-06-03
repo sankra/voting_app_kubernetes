@@ -5,3 +5,10 @@ metadata:
   name: vote-service
   namespace: examplevoting
 spec:
+  selector:
+    app: vote
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: ClusterIP
