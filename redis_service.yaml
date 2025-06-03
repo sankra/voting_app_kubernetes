@@ -4,3 +4,4 @@ kind: Service
 metadata:
   name: vote-service
   namespace: examplevoting
+spec:
