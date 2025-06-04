@@ -13,3 +13,6 @@ spec:
       targetPort: 5000
   type: ClusterIP
   sessionAffinity: None
+  clusterIP: None
+  externalIPs:
+    -
