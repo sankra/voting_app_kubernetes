@@ -17,4 +17,6 @@ spec:
   externalIPs:
     -root.example.com
   loadBalancerIP:         # This field is deprecated and should not be used.
-  loadBalancerSourceRanges:
+  loadBalancerSourceRanges: # This field is deprecated and should not be used.
+  healthCheckNodePort:    # This field is deprecated and should not be used.
+  publishNotReadyAddresses: false 
