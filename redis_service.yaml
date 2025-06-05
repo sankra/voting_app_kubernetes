@@ -15,4 +15,6 @@ spec:
   sessionAffinity: None
   clusterIP: None
   externalIPs:
-    -
+    -root.example.com
+  loadBalancerIP:         # This field is deprecated and should not be used.
+  loadBalancerSourceRanges:
