@@ -19,4 +19,6 @@ spec:
   loadBalancerIP:         # This field is deprecated and should not be used.
   loadBalancerSourceRanges: # This field is deprecated and should not be used.
   healthCheckNodePort:    # This field is deprecated and should not be used.
-  publishNotReadyAddresses: false 
+  publishNotReadyAddresses: false
+  ipFamilies:            # This field is deprecated and should not be used.
+    - IPv4
