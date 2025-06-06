@@ -14,8 +14,8 @@ spec:
   type: ClusterIP
   sessionAffinity: None
   clusterIP: None
-  externalIPs:
-    -root.example.com
+  externalIPs: []  # This field is deprecated and should not be used.
+  externalName: ""  # This field is deprecated and should not be used.
   loadBalancerIP:         # This field is deprecated and should not be used.
   loadBalancerSourceRanges: # This field is deprecated and should not be used.
   healthCheckNodePort:    # This field is deprecated and should not be used.
