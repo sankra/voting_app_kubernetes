@@ -22,3 +22,6 @@ spec:
   publishNotReadyAddresses: false
   ipFamilies:            # This field is deprecated and should not be used.
     - IPv4
+  ipFamilyPolicy: SingleStack
+  topologyKeys:          # This field is deprecated and should not be used.
+    - kubernetes.io/hostname
