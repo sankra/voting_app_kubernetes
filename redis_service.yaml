@@ -1,5 +1,4 @@
 apiVersion: kodekloud/examplevoting_vote:v1
-"kind: Service"
 kind: Service
 metadata:
   name: vote-service
