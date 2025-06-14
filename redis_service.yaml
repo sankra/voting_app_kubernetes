@@ -24,3 +24,8 @@ spec:
   ipFamilyPolicy: SingleStack
   topologyKeys:          # This field is deprecated and should not be used.
     - kubernetes.io/hostname
+  publishNotReadyAddresses: false
+  sessionAffinityConfig: # This field is deprecated and should not be used.
+    clientIP:
+      timeoutSeconds: 10800
+  loadBalancerClass:    # This field is deprecated and should not be used.
