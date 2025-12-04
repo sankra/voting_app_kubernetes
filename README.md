@@ -38,3 +38,6 @@ This project is ideal for demonstrating containerized microservices, CI/CD pipel
 - Microservices-based architecture.
 - Dockerized services for seamless deployment.
 - Scalable and extendable design for learning and demos.
+
+
+## Deployment Plan
